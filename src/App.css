@@ -1,4 +1,3 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,600,400italic);
 
 .App {
   text-align: center; 
@@ -8,7 +7,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: black;
-  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  color: aliceblue;
   line-height: 30px;
 }

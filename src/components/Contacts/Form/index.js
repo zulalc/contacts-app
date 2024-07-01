@@ -1,26 +1,49 @@
-import React, { useState } from 'react'
-import './Form.css';
-function Form() {
-    const [form, setForm] = useState({ fullname: "", phone_number: "" });
+import React, { useState } from "react";
+import "./Form.css";
 
-    const onChangeInput = (e) => {
-        setForm({ ...form, [e.target.name]: e.target.value });
-    };
+function Form({ addContact, contacts }) {
+  const [form, setForm] = useState({ fullname: "", phone_number: "" });
 
-    return (
-        <div class="container">
-            <div>
-                <input name="fullname" placeholder="Full Name" onChange={onChangeInput}/>
-            </div>
+  const onChangeInput = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
 
-            <div>
-                <input name="phone_number" placeholder="Phone Number" onChange={onChangeInput} />
-            </div>
+  const onSubmit = (e) => {
+    e.preventDefault();
 
-            <div><button>Add</button></div>
-            
-        </div>
-    )
+    if (form.fullname === "" || form.phone_number === "") {
+      return false;
+    }
+    addContact([...contacts, form]);
+
+    setForm({ fullname: "", phone_number: "" }); // tekrar içini boşaltıyoruz
+  };
+
+  return (
+    <form className="container" onSubmit={onSubmit}>
+      <div>
+        <input
+          name="fullname"
+          placeholder="Full Name"
+          value={form.fullname}
+          onChange={onChangeInput}
+        />
+      </div>
+
+      <div>
+        <input
+          name="phone_number"
+          placeholder="Phone Number"
+          value={form.phone_number}
+          onChange={onChangeInput}
+        />
+      </div>
+
+      <div>
+        <button>Add</button>
+      </div>
+    </form>
+  );
 }
 
-export default Form
+export default Form;
