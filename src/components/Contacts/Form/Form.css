@@ -5,13 +5,14 @@
     margin-top: 15px;
 }
 
-.container .button {
+.container .addBtn {
     cursor: pointer;
-    width: 100%;
+    width: 50%;
     border: none;
     background: #4CAF50;
     color: #FFF;
-    margin: 0 0 5px;
+    margin-top: 15px;
     padding: 10px;
     font-size: 15px;
+    border-radius: 5px;
 }
